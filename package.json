@@ -1,5 +1,5 @@
 {
-  "name": "tiy-project",
+  "name": "tiy-guest-lecture",
   "version": "1.0.0",
   "description": "A tiy project made from template",
   "main": "index.js",
@@ -15,7 +15,7 @@
     "prewatch": "npm run dist:all",
     "watch": "watchman-make --make 'npm run' -p 'src/js/*' -t dist:js -p 'src/sass/*' -t dist:css -p 'src/html/*' -t dist:html -p 'src/images/*' -t dist:images",
     "server": "http-server dist",
-    "develop": "parallelshell 'npm run watch' 'npm run server'",
+    "develop": "npm-run-all --parallel watch server",
     "deploy": "surge -p \"$(npm prefix)/dist\" -d \"tiy-2016q1-$(whoami)-${PWD##*/}.surge.sh\""
   },
   "author": "",
@@ -24,6 +24,8 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babelify": "^7.2.0",
-    "node-sass": "^3.4.2"
+    "browserify": "13.0.0",
+    "node-sass": "^3.4.2",
+    "npm-run-all": "1.5.3"
   }
 }
